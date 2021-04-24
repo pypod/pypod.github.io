@@ -3,12 +3,22 @@ import re
 with open('index.html', 'r') as f:
     text = f.read()
     if 'iitm_logo' not in text:
-        text = text.replace('<head>', '''<head>\n<link rel="icon" type="image/png" href="../assets/images/iitm_logo.png">''')
+        text = text.replace('<head>', '''<head>\n<link rel="icon" type="image/png" href="assets/images/iitm_logo.png">''')
     text = re.sub(r'(<title>)(.*?)(</title>)', r'\1Python Home\3', text)
 
 with open('index.html', 'w') as f:
     f.write(text)
  
+with open('404.html', 'r') as f:
+    text = f.read()
+    if 'iitm_logo' not in text:
+        text = text.replace('<head>', '''<head>\n<link rel="icon" type="image/png" href="assets/images/iitm_logo.png">''')
+    text = re.sub(r'(<title>)(.*?)(</title>)', r'\1Python 404\3', text)
+
+with open('404.html', 'w') as f:
+    f.write(text)
+ 
+
 weeks = [week for week in os.listdir('.') if 'week' in week]
 
 for week in weeks:
