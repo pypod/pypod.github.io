@@ -19,12 +19,12 @@ with open('404.html', 'w') as f:
     f.write(text)
  
 
-weeks = [week for week in os.listdir('.') if 'week' in week]
+chapters = [chapter for chapter in os.listdir('.') if 'chapter' in chapter]
 
-for week in weeks:
-    lessons = os.listdir(week)
+for chapter in chapters:
+    lessons = os.listdir(chapter)
     for lesson in lessons:
-        lesson_path = os.path.join(week, lesson)
+        lesson_path = os.path.join(chapter, lesson)
         with open(lesson_path, 'r') as f:
             text = f.read()
             if 'iitm_logo' not in text:
